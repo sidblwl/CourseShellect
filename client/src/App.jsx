@@ -136,7 +136,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Gen-Ed Recommender</h1>
+      <h1>UMD Class Recommender</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -201,14 +201,25 @@ function App() {
         </button>
       </form>
 
-      <h2>Top Gen-Ed Recommendations:</h2>
+      <h2>Top Class Recommendations:</h2>
       <ul>
+       
         {recommendations.length > 0 ? (
           recommendations.map((course) => (
-            <li key={course.department + course.course_number}>
-              {course.department} {course.course_number}: {course.title} — GPA:{" "}
-              {course.average_gpa}, Credits: {course.credits}
-            </li>
+            <div className="courseWrapper">
+              <p className="courseRec" key={course.department + course.course_number}>{
+                course.department} {course.course_number}: {course.title} 
+              </p>
+              <li>
+                GPA:{" "} {Math.round(course.average_gpa * 100)/100}
+              </li>
+              <li>
+                Credits: {course.credits} 
+              </li>
+              <li>
+                Professors: {[...new Set(course.professors)] + " "}
+              </li>  
+            </div>   
           ))
         ) : (
           <p>No matching courses found.</p>

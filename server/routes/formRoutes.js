@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
           typeof course.credits === "number" &&
           course.average_gpa >= minGPA &&
           course.credits >= minCredits &&
-          course.credits <= maxCredits
+          course.credits <= maxCredits 
       );
 
       matchingCourses = matchingCourses.concat(filtered);
@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
         message: "No courses matched your filters. Try broadening your GPA or credit range.",
       });
     }
-
+    
     console.log(`✅ Returning ${Math.min(10, matchingCourses.length)} top results`);
     res.json(matchingCourses.slice(0, 10));
   } catch (err) {
