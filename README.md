@@ -7,6 +7,8 @@
 ## Group Members
 <!-- Add group members here -->
 <!-- Example: Jane Doe (janedoe) -->
+Saanvi Kataria (skatari2)
+Divya Lingala (dlingala)
 
 ## App Description
 CourseShellect is a class recommender tool that filters UMD courses based on GPA, credit load, and department preferences.
