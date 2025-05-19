@@ -1,7 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const Preference = require("../models/preference");
+import express from "express";
+import Preference from "../models/preference.js";
 
+const router = express.Router();
+
+// Use dynamic import to load node-fetch (since you're using CommonJS-style require logic here)
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
@@ -9,10 +11,9 @@ router.post("/", async (req, res) => {
   try {
     const { username, subjects, minGPA, minCredits, maxCredits } = req.body;
 
-    console.log(`📩 Received preferences from ${username}`);
-    console.log(`🔍 GPA >= ${minGPA}, Credits: ${minCredits}–${maxCredits}, Subjects: ${subjects.join(", ")}`);
+    console.log(`Received preferences from ${username}`);
+    console.log(`GPA >= ${minGPA}, Credits: ${minCredits}–${maxCredits}, Subjects: ${subjects.join(", ")}`);
 
-    // 🔁 Find and update if exists, otherwise create new (upsert)
     await Preference.findOneAndUpdate(
       { username },
       { subjects, minGPA, minCredits, maxCredits, createdAt: new Date() },
@@ -42,16 +43,16 @@ router.post("/", async (req, res) => {
     matchingCourses.sort((a, b) => b.average_gpa - a.average_gpa);
 
     if (matchingCourses.length === 0) {
-      console.log("❌ No matching courses found.");
+      console.log("No matching courses found.");
       return res.json({
         message: "No courses matched your filters. Try broadening your GPA or credit range.",
       });
     }
 
-    console.log(`✅ Returning ${Math.min(10, matchingCourses.length)} top results`);
+    console.log(`Returning ${Math.min(10, matchingCourses.length)} top results`);
     res.json(matchingCourses.slice(0, 10));
   } catch (err) {
-    console.error("❌ Error in /api/preferences:", err);
+    console.error("Error in /api/preferences:", err);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -68,10 +69,9 @@ router.get("/:username", async (req, res) => {
 
     res.json(pref);
   } catch (err) {
-    console.error("❌ Error fetching preferences:", err);
+    console.error("Error fetching preferences:", err);
     res.status(500).json({ error: "Internal server error" });
   }
 });
 
-
-module.exports = router;
+export default router;
