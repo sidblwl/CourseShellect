@@ -15,16 +15,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API routes
+// API route
 app.use("/api/preferences", formRoutes);
 
 // Serve the built React frontend from dist
 const frontendPath = path.resolve(__dirname, "../dist");
 app.use(express.static(frontendPath));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(frontendPath, "index.html"));
+// });
 
 // Mongo connection
 mongoose
