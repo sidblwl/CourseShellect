@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const PreferenceSchema = new mongoose.Schema({
   username: String,
@@ -9,5 +9,6 @@ const PreferenceSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+const Preference = mongoose.model("Preference", PreferenceSchema);
 
-module.exports = mongoose.model("Preference", PreferenceSchema);
+export default Preference;

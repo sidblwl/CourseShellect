@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
-/* Reset some default spacing */
 body, h1, h2, p, label, input, button, ul {
   margin: 0;
   padding: 0;
@@ -19,7 +18,6 @@ body {
   padding: 20px;
 }
 
-/* Header Styling */
 h1 {
   text-align: center;
   font-size: 2.2rem;
@@ -82,7 +80,6 @@ h2 {
   color: #333;
 }
 
-/* Course Recommendation Box */
 .courseWrapper {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -112,12 +109,10 @@ h2 {
   color: #444;
 }
 
-/* Form input + button row */
 form div[style*="display: flex"] {
   margin-top: 6px;
 }
 
-/* Dropdown spacing (react-select) */
 .css-13cymwt-control {
   margin-top: 6px;
 }
