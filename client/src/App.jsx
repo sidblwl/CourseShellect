@@ -99,7 +99,7 @@ function App() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3001/api/preferences", {
+      const res = await fetch("/api/preferences", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -115,7 +115,7 @@ function App() {
   const handleLoadPreferences = async () => {
     if (!formData.username) return alert("Enter a username first.");
     try {
-      const res = await fetch(`http://localhost:3001/api/preferences/${formData.username}`);
+      const res = await fetch(`/api/preferences/${formData.username}`);
       const data = await res.json();
       if (data.message) {
         alert("No preferences found for this user.");
