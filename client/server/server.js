@@ -15,10 +15,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API route
 app.use("/api/preferences", formRoutes);
 
-// Serve the built React frontend from dist
 const frontendPath = path.resolve(__dirname, "../dist");
 app.use(express.static(frontendPath));
 
@@ -32,8 +30,8 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
