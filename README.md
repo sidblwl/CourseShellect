@@ -5,8 +5,6 @@
 **Directory ID:** sbelwal
 
 ## Group Members
-<!-- Add group members here -->
-<!-- Example: Jane Doe (janedoe) -->
 Saanvi Kataria (skatari2)
 Divya Lingala (dlingala)
 Siddarth Belwal (sbelwal)
@@ -15,8 +13,7 @@ Siddarth Belwal (sbelwal)
 CourseShellect is a class recommender tool that filters UMD courses based on GPA, credit load, and department preferences.
 
 ## YouTube Video Demo Link
-*Please insert your video demo link here before submission.*  
-_(The project will not be graded without it.)_
+https://youtu.be/I8l_fWj3Wig
 
 ## APIs Information
 - [PlanetTerp API](https://api.planetterp.com/) — Used to fetch course data for filtering and recommendations.
